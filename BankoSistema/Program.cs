@@ -41,83 +41,194 @@ namespace ManoPrograma
 
             // veiksmai 
 
-            Console.WriteLine("Welcome to Late Night Bank! What is your name? (Josh/Anita)");
+            Console.WriteLine("Welcome to Late Night Bank!");
 
-            string name = Console.ReadLine();
+            string continueYesNo = "yes";
 
-            if (name == "Josh")
+            while (continueYesNo == "yes")
             {
-                Console.WriteLine("Your accounts and balances:");
-                foreach (Account account in joshAccounts)
+                Console.WriteLine("What is your name? (Josh/Anita)");
+
+                string name = Console.ReadLine();
+
+                if (name == "Josh")
                 {
-                    Console.WriteLine("Account number: " + account.Number + "    Balance - " + account.Balance + " Eur.");                  
-                }
-                Console.WriteLine("Total account balance: " + customerJosh.GetTotalBalance());
-
-                Console.WriteLine("Would you like to make a deposit or a withdrawal? (type deposit/withdraw)");
-                
-                string actionType = Console.ReadLine();
-                
-                if (actionType == "deposit")
-                {
-                    Console.WriteLine("Please provide amount and account number to make a deposit");
-                    Console.WriteLine("Amount: ");
-                    double amount = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Account number: ");
-
-                    switch (Console.ReadLine())
+                    Console.WriteLine("Your accounts and balances:");
+                    foreach (Account account in joshAccounts)
                     {
-                        case "3001":
-                            josh1.Deposit(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + josh1.Balance);
-                            Console.WriteLine(josh1.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        case "3002":
-                            josh2.Deposit(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + josh2.Balance);
-                            Console.WriteLine(josh2.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        default:
-                            Console.WriteLine("Wrong input");
-                            break;
-
+                        Console.WriteLine("Account number: " + account.Number + "    Balance - " + account.Balance + " Eur.");
                     }
-                }
+                    Console.WriteLine("Total account balance: " + customerJosh.GetTotalBalance());
 
-                else if (actionType == "withdraw")
-                {
-                    Console.WriteLine("Please provide amount and account number to make a withdrawal");
-                    Console.WriteLine("Amount: ");
-                    double amount = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Would you like to make a deposit or a withdrawal? (type deposit/withdraw)");
 
-                    Console.WriteLine("Account number: ");
+                    string actionType = Console.ReadLine();
 
-                    switch (Console.ReadLine())
+                    if (actionType == "deposit")
                     {
-                        case "3001":
-                            josh1.Withdraw(amount);
+                        Console.WriteLine("Please provide amount and account number to make a deposit");
+                        Console.WriteLine("Amount: ");
+                        double amount = double.Parse(Console.ReadLine());
 
-                            Console.WriteLine("Withdrawal successful, new balance: " + josh1.Balance);
-                            Console.WriteLine(josh1.Transactions.Count() + " transaction(s) made.");
-                            break;
+                        Console.WriteLine("Account number: ");
 
-                        case "3002":
-                            josh2.Withdraw(amount);
+                        switch (Console.ReadLine())
+                        {
+                            case "3001":
+                                josh1.Deposit(amount);
 
-                            Console.WriteLine("Deposit successful, new balance: " + josh2.Balance);
-                            Console.WriteLine(josh2.Transactions.Count() + " transaction(s) made.");
-                            break;
+                                Console.WriteLine("Deposit successful, new balance: " + josh1.Balance);
+                                Console.WriteLine(josh1.Transactions.Count() + " transaction(s) made.");
+                                break;
 
-                        default:
-                            Console.WriteLine("Wrong input");
-                            break;
+                            case "3002":
+                                josh2.Deposit(amount);
 
+                                Console.WriteLine("Deposit successful, new balance: " + josh2.Balance);
+                                Console.WriteLine(josh2.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            default:
+                                Console.WriteLine("Wrong input");
+                                break;
+
+                        }
                     }
+
+                    else if (actionType == "withdraw")
+                    {
+                        Console.WriteLine("Please provide amount and account number to make a withdrawal");
+                        Console.WriteLine("Amount: ");
+                        double amount = double.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Account number: ");
+
+                        switch (Console.ReadLine())
+                        {
+                            case "3001":
+                                josh1.Withdraw(amount);
+
+                                Console.WriteLine("Withdrawal successful, new balance: " + josh1.Balance);
+                                Console.WriteLine(josh1.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            case "3002":
+                                josh2.Withdraw(amount);
+
+                                Console.WriteLine("Deposit successful, new balance: " + josh2.Balance);
+                                Console.WriteLine(josh2.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            default:
+                                Console.WriteLine("Wrong input");
+                                break;
+
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Wrong input");
+                    }
+
+                }
+                else if (name == "Anita")
+                {
+                    Console.WriteLine("Your accounts and balances:");
+                    foreach (Account account in anitaAccounts)
+                    {
+                        Console.WriteLine("Account number: " + account.Number + "    Balance - " + account.Balance + " Eur.");
+                    }
+                    Console.WriteLine("Total account balance: " + customerAnita.GetTotalBalance());
+
+                    Console.WriteLine("Would you like to make a deposit or a withdrawal? (type deposit/withdraw)");
+
+                    string actionType = Console.ReadLine();
+
+                    if (actionType == "deposit")
+                    {
+                        Console.WriteLine("Please provide amount and account number to make a deposit");
+                        Console.WriteLine("Amount: ");
+                        double amount = double.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Account number: ");
+
+                        switch (Console.ReadLine())
+                        {
+                            case "4001":
+                                anita1.Deposit(amount);
+
+                                Console.WriteLine("Deposit successful, new balance: " + anita1.Balance);
+                                Console.WriteLine(anita1.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            case "4002":
+                                anita2.Deposit(amount);
+
+                                Console.WriteLine("Deposit successful, new balance: " + anita2.Balance);
+                                Console.WriteLine(anita2.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            case "4003":
+                                anita3.Deposit(amount);
+
+                                Console.WriteLine("Deposit successful, new balance: " + anita3.Balance);
+                                Console.WriteLine(anita3.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            default:
+                                Console.WriteLine("Wrong input");
+                                break;
+
+
+
+                        }
+                    }
+
+                    else if (actionType == "withdraw")
+                    {
+                        Console.WriteLine("Please provide amount and account number to make a withdrawal");
+                        Console.WriteLine("Amount: ");
+                        double amount = double.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Account number: ");
+
+                        switch (Console.ReadLine())
+                        {
+                            case "4001":
+                                anita1.Withdraw(amount);
+
+                                Console.WriteLine("Withdrawal successful, new balance: " + anita1.Balance);
+                                Console.WriteLine(anita1.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            case "4002":
+                                anita2.Withdraw(amount);
+
+                                Console.WriteLine("Deposit successful, new balance: " + anita2.Balance);
+                                Console.WriteLine(anita2.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            case "4003":
+                                anita3.Withdraw(amount);
+
+                                Console.WriteLine("Deposit successful, new balance: " + anita2.Balance);
+                                Console.WriteLine(anita2.Transactions.Count() + " transaction(s) made.");
+                                break;
+
+                            default:
+                                Console.WriteLine("Wrong input");
+                                break;
+
+
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Wrong input");
+                    }
+
                 }
 
                 else
@@ -125,110 +236,11 @@ namespace ManoPrograma
                     Console.WriteLine("Wrong input");
                 }
 
-            }
-            else if (name == "Anita")
-            {
-                Console.WriteLine("Your accounts and balances:");
-                foreach (Account account in anitaAccounts)
-                {
-                    Console.WriteLine("Account number: " + account.Number + "    Balance - " + account.Balance + " Eur.");
-                }
-                Console.WriteLine("Total account balance: " + customerAnita.GetTotalBalance());
-
-                Console.WriteLine("Would you like to make a deposit or a withdrawal? (type deposit/withdraw)");
-
-                string actionType = Console.ReadLine();
-
-                if (actionType == "deposit")
-                {
-                    Console.WriteLine("Please provide amount and account number to make a deposit");
-                    Console.WriteLine("Amount: ");
-                    double amount = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Account number: ");
-
-                    switch (Console.ReadLine())
-                    {
-                        case "4001":
-                            anita1.Deposit(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + anita1.Balance);
-                            Console.WriteLine(anita1.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        case "4002":
-                            anita2.Deposit(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + anita2.Balance);
-                            Console.WriteLine(anita2.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        case "4003":
-                            anita3.Deposit(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + anita3.Balance);
-                            Console.WriteLine(anita3.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        default:
-                            Console.WriteLine("Wrong input");
-                            break;
-
-
-
-                    }
-                }
-
-                else if (actionType == "withdraw")
-                {
-                    Console.WriteLine("Please provide amount and account number to make a withdrawal");
-                    Console.WriteLine("Amount: ");
-                    double amount = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Account number: ");
-
-                    switch (Console.ReadLine())
-                    {
-                        case "4001":
-                            anita1.Withdraw(amount);
-
-                            Console.WriteLine("Withdrawal successful, new balance: " + anita1.Balance);
-                            Console.WriteLine(anita1.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        case "4002":
-                            anita2.Withdraw(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + anita2.Balance);
-                            Console.WriteLine(anita2.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        case "4003":
-                            anita3.Withdraw(amount);
-
-                            Console.WriteLine("Deposit successful, new balance: " + anita2.Balance);
-                            Console.WriteLine(anita2.Transactions.Count() + " transaction(s) made.");
-                            break;
-
-                        default:
-                            Console.WriteLine("Wrong input");
-                            break;
-
-
-                    }
-                }
-
-                else
-                {
-                    Console.WriteLine("Wrong input");
-                }
+                Console.WriteLine("Another transaction? (yes/no)");
+                continueYesNo = Console.ReadLine();
 
             }
 
-            else
-            {
-                Console.WriteLine("Wrong input");
-            }
 
 
             // klientu bendras account balance
